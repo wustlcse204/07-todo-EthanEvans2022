@@ -1,0 +1,43 @@
+UI Requirements
+
+    Input area for adding new ToDos
+    may also need "add" button
+    List of ToDos
+    Each ToDo has:
+        checkbox (or another way of checking off) to complete
+        name of ToDo
+        button to delete
+    
+Style Requirements
+
+    App should be nicely styled, no elements should look like default HTML elements!
+    App should be centered on the page, and liquid layout so it works well on mobile
+    Media queries not required but may be useful
+    New ToDo box should not look like a default input
+    ToDos should be separated from each other somehow
+    ToDo controls (check off, delete) should be nicely styled
+
+Functionality Requirements
+
+    Adding a new ToDo can be done by pressing enter or clicking a button
+    After adding a ToDo, the input area for new ToDos should become blank
+    New ToDos added to list
+    Checking off a ToDo should cause it to stay on the list but be styled differently (maybe strikethrough, or faded, etc)
+    Deleting a ToDo should remove it from the list entirely
+Data Requirements
+
+When page loads, existing ToDos are loaded from the server
+When new ToDo is added, send it to the server
+When a ToDo is "checked off" or deleted, send that to the server
+API Key
+
+    To interact with the API, you will first need an API Key that will uniquely identify your user. This API key cannot be recovered if you lose it, but you can always generate a new one and you will start with a "clean slate" with no data. Generate an API Key here: http://cse204.kraigh.net/api-key/ (Links to an external site.)Links to an external site.
+
+API Documentation
+
+The API has been thoroughly documented, along with some examples for interacting with it via javascript. You can view this documentation here: http://cse204.kraigh.net/todo-api/ (Links to an external site.)
+
+
+
+API KEY:
+2787e24e41fb11b38494abfe44ed1e3915d8482f5f19138119d2cc50ccbb6d12

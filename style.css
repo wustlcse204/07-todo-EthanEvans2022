@@ -1,0 +1,17 @@
+.toodle{
+    border: 1px solid grey;
+    background-color:beige;
+    width: 200px;
+}
+.toodle p:first-child{
+    font-weight: 600;
+    font-size: 1.0em;
+}
+.toodle p{
+    font-size: 0.9em;
+}
+.toodle input[type="button"]{
+    border-radius: 4px;
+    font-size: 1em;
+    
+}
