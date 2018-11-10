@@ -3,11 +3,14 @@
     <head>
         <title>Toodles</title>
         <link type="text/css" rel="stylesheet" href="style.css"/>
+        <!--JQUERY-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
-        <h1>TOODLES</h1>
-        <h2>Keep Track of Your To-Do's</h2>
-        <br/><br/>
+        <div id="jumbotron">
+            <h1>TOODLES</h1>
+            <h2>Keep Track of Your To-Do's</h2>
+        </div>
         <h3>New Toodles</h3>
         <form method="post" id="form">
             <label>Task: </label><input type="text" name="task" id="task"/>
@@ -16,14 +19,14 @@
         </form>
 
 
-        <div id = "test">
-        <div class="toodle">
-            <p>Study for Computer Science</p>
-            <p>Test is on Friday</p>
-            <label>Finished:</label>
-            <input type="checkbox">
-            <input type="button" id="delete_button_0" value="Delete">
-        </div>
+        <div id = "test" style="border: 1px solid red">
+            <div class="toodle">
+                <p>Study for Computer Science</p>
+                <p>Test is on Friday</p>
+                <label>Finished:</label>
+                <input type="checkbox">
+                <input type="button" id="delete_button_0" value="Delete">
+            </div>
 
         </div>
         <script src="script.js"></script>

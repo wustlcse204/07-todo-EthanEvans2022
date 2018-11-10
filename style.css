@@ -1,3 +1,21 @@
+body{
+    
+}
+#jumbotron{
+    text-align: center;
+    line-height: 6.0em;
+    background-origin: content-box;
+    
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(assets/jumbo_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    height: 250px;
+    font-family: sans-serif;
+}
+
+
+/*TOODLES*/
 .toodle{
     border: 1px solid grey;
     background-color:beige;
