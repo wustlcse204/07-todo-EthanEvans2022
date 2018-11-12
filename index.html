@@ -13,22 +13,29 @@
         </div>
         <h3>New Toodles</h3>
         <form method="post" id="form">
-            <label>Task: </label><input type="text" name="task" id="task"/>
-            <label>Description: </label><input type="text" name="desc" id="desc"/>
-            <input type="button" id="add" name="add" value="Add Toodle"/>
+            <label>
+                <div class="label_text">
+                    Task:
+                </div>
+                <input type="text" name="task" id="task" class="text_input"/>
+            </label>
+            <label>
+                <div class="label_text">
+                    Description:
+                </div>
+                <input type="text" name="desc" id="desc" class="text_input"/>
+            </label>
+            <input type="button" id="add" name="add" value="Add Toodle" class="add"/>
         </form>
 
+        <div class="main_display">
+            <div id="gutter1"></div>
+            <div id = "container">
 
-        <div id = "test" style="border: 1px solid red">
-            <div class="toodle">
-                <p>Study for Computer Science</p>
-                <p>Test is on Friday</p>
-                <label>Finished:</label>
-                <input type="checkbox">
-                <input type="button" id="delete_button_0" value="Delete">
             </div>
-
+            <div id="gutter2"></div>
         </div>
+
         <script src="script.js"></script>
     </body>
 

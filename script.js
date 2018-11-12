@@ -8,73 +8,60 @@ $(document).ready(function(){
 
 
     $("#add").on("click", function(){
-        console.log("TEST");
         var task = document.getElementById("form").elements.namedItem("task").value;
         var desc = document.getElementById("form").elements.namedItem("desc").value;
-        generateToodle2(task, desc);
-    });
-    $('#test').on("click",".toodle", function(){
+        //if(task.length == 0){
+        //alert("The task is required to add a toodle");
+        // }else{
+        generateToodle(task, desc);
+        //$("#task").val("");
+        //$("#desc").val("");
+        //}
 
+    });
+    $('#container').on("mouseenter",".toodle", function(){
         $('.toodle').on('click','.deleteButton', deleteToodle);
-    })
+        $('.toodle').on('click',':checkbox', toodleFinished);
+    });
     /*TO DO: Generated buttons not targeted by this function for some reason*/
 
 
     function deleteToodle(){
         var object = this;
-        console.log("IT WORKED");
         $(object).parent().hide(500);
         setTimeout(function(){
             $(object).parent().remove();
         }, 500);
     }
+    function randomColor(){
+        /*SOURCE: https://stackoverflow.com/questions/14984643/css-pick-a-random-color-from-array*/
+        var colors = ['#ffa600', '#ff433a',"#4a55ff","#02cdff","#ff5c48","#ab42fe","#00fff7"];
+        var random_color = colors[Math.floor(Math.random() * colors.length)];
+        return random_color;
+    }
 
     function generateToodle(task, desc){
-        var toodle_div = document.createElement("div")
-        toodle_div.setAttribute("class","toodle") 
-        var p_task = document.createElement("p")
-        var p_desc = document.createElement("p");
-
-        var label = document.createElement("label");
-        var checkbox = document.createElement("INPUT");
-        checkbox.setAttribute("type","checkbox");
-
-        var button = document.createElement("INPUT");
-        button.setAttribute("type","button");
-        button.setAttribute("class","deleteButton");
-        button.setAttribute("value","Delete");
-
-        /*
-        var button_id = "delete_button_" + delete_button_num; 
-        button.setAttribute("id", button_id);
-        delete_button_num++;
-        */
-
-        var node_task = document.createTextNode(task);
-        var node_desc = document.createTextNode(desc);
-        var node_label = document.createTextNode("Finished: ");
-
-        p_task.appendChild(node_task);
-        p_desc.appendChild(node_desc);
-        label.appendChild(node_label);
-
-        toodle_div.appendChild(p_task);
-        toodle_div.appendChild(p_desc);
-        toodle_div.appendChild(label);
-        toodle_div.appendChild(checkbox);
-        toodle_div.appendChild(button);
 
 
-        var element = document.getElementById("test");
-        element.appendChild(toodle_div);
-    }
-    function generateToodle2(task, desc){
-        var toodle = $("<div class='toodle'> <p>" + task + "</p> <p>" + desc + "</p><label>Finished:</label><input type='checkbox'> <input type='button' class='deleteButton' value='Delete'/>");
-        $("#test").append(toodle);
+
+        var toodle = $("<div class='toodle' style='background-color:" + randomColor() + "'> <p>" + task + "</p> <p>" + desc + "</p><label class='control control-checkbox'>Finished<input type='checkbox'><div class='control_indicator'></div></label> <input type='button' class='deleteButton' value='Delete'/>");
+        $("#container").append(toodle);
     }
 
-
-
+    function toodleFinished(){
+        var isFinished = this.checked > 0;
+        if(isFinished == true){
+            var toodle = $(this).parent().parent();
+            toodle.css("background-color", "rgb(0, 175, 0)");
+            toodle.css("text-decoration","line-through");
+        }
+        else{
+            var toodle = $(this).parent().parent();
+            var toodle = $(this).parent().parent();
+            toodle.css("background-color", randomColor);
+            toodle.css("text-decoration","none");
+        }
+    }
 
 
 
