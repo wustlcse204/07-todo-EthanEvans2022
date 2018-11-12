@@ -4,28 +4,29 @@
 $(document).ready(function(){
     var xhttp = new XMLHttpRequest();
 
-    var delete_button_num = 0;
-
-
-    $("#add").on("click", function(){
-        var task = document.getElementById("form").elements.namedItem("task").value;
-        var desc = document.getElementById("form").elements.namedItem("desc").value;
-        //if(task.length == 0){
-        //alert("The task is required to add a toodle");
-        // }else{
-        generateToodle(task, desc);
-        //$("#task").val("");
-        //$("#desc").val("");
-        //}
-
+    $("#task").keypress(function(e){
+        if(e.which == 13){
+            checkInput();
+        }
     });
+    $("#desc").keypress(function(e){
+        if(e.which == 13){
+            checkInput();
+        }
+    });
+    $("#add").on("click", checkInput);
     $('#container').on("mouseenter",".toodle", function(){
         $('.toodle').on('click','.deleteButton', deleteToodle);
         $('.toodle').on('click',':checkbox', toodleFinished);
     });
-    /*TO DO: Generated buttons not targeted by this function for some reason*/
-
-
+    function checkInput(){
+        var task = $("#task").val();
+        //if(task.length == 0){
+        //alert("The task is required to add a toodle");
+        // }else{
+        generateToodle(task);
+        //}
+    }
     function deleteToodle(){
         var object = this;
         $(object).parent().hide(500);
@@ -40,20 +41,22 @@ $(document).ready(function(){
         return random_color;
     }
 
-    function generateToodle(task, desc){
-
-
-
-        var toodle = $("<div class='toodle' style='background-color:" + randomColor() + "'> <p>" + task + "</p> <p>" + desc + "</p><label class='control control-checkbox'>Finished<input type='checkbox'><div class='control_indicator'></div></label> <input type='button' class='deleteButton' value='Delete'/>");
-        $("#container").append(toodle);
+    function generateToodle(task){
+        var desc = $("#desc").val();
+        var toodle = $("<div class='toodle' style='background-color:" + randomColor() + ";'> <p>" + task + "</p> <p>" + desc + "</p><label class='control control-checkbox'>Finished<input type='checkbox'><div class='control_indicator'></div></label> <input type='button' class='deleteButton' value='Delete'/>");
+        $("#container").append(toodle).hide();
+        $("#container:last").fadeIn();
+        $("#task").val("");
+        $("#desc").val("");
     }
 
     function toodleFinished(){
         var isFinished = this.checked > 0;
         if(isFinished == true){
             var toodle = $(this).parent().parent();
-            toodle.css("background-color", "rgb(0, 175, 0)");
+            toodle.css("background-color", "rgba(0, 125, 0, 0.6)");
             toodle.css("text-decoration","line-through");
+            toodle.css("color","black");
         }
         else{
             var toodle = $(this).parent().parent();
@@ -62,18 +65,4 @@ $(document).ready(function(){
             toodle.css("text-decoration","none");
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
